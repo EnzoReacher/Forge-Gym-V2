@@ -17,7 +17,7 @@ The project must prove the whole pipe before broadening domain scope or investin
 
 ## Current maturity state
 
-Experimental / pre-walking-skeleton.
+Experimental.
 
 ## Preconditions
 
@@ -77,7 +77,7 @@ ADR-001 through ADR-008, ADR-013 through ADR-017 are Accepted for WSK-001. ADR-0
 - [ ] Idempotency result and canonical mutation commit in one transaction.
 - [ ] A stale expected Workout Session version returns an explicit conflict and preserves newer canonical state.
 - [ ] A client-supplied fake owner field cannot redirect a write.
-- [ ] `/health` reports application/database readiness without sensitive details.
+- [ ] `/health` reports non-sensitive application liveness and `/ready` reports database/migration readiness.
 - [ ] build-info endpoint or equivalent exposes version/Git SHA/build/migration metadata.
 - [ ] no Product UI polish beyond usable Test UI basics is introduced.
 
