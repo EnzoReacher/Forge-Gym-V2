@@ -30,3 +30,7 @@ Every new invariant must name:
 - failure case
 
 A comment or UI restriction alone is not enforcement.
+
+## WSK-001 database support clarification
+
+The initial schema uses composite foreign keys across `owner_id + parent identifiers` so child rows cannot be attached to a different owner's session/occurrence through accidental infrastructure writes. This strengthens ownership consistency but is **not** claimed as complete tenant isolation; tenant isolation is still proven through trusted account derivation, owner-scoped repository operations, and two-account tests.

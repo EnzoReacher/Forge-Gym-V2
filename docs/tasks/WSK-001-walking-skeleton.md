@@ -1,6 +1,11 @@
 # WSK-001 — First Persisted Training Walking Skeleton
 
-Status: **AUTHORIZED — implementation may proceed**
+Status: **IMPLEMENTED LOCALLY — REQUIRED ENVIRONMENT VERIFICATION BLOCKED**
+
+
+## Execution note — 2026-08-17
+
+The WSK-001 code path has been implemented on the local task branch. No acceptance checkbox is considered passed merely because code exists. Full dependency installation, PostgreSQL migration/integration tests, Playwright E2E, OCI build, and clean-machine verification remain blocked in the current sandbox because npm registry/Docker/PostgreSQL are unavailable. Remote publication is separately blocked by GitHub integration write access.
 
 ## Goal
 

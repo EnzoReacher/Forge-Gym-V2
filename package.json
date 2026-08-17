@@ -1,0 +1,39 @@
+{
+  "name": "forge-gym-v2",
+  "version": "0.1.0-experimental",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.21.0",
+  "engines": {
+    "node": "24.19.0",
+    "pnpm": "11.21.0"
+  },
+  "scripts": {
+    "build": "pnpm -r --if-present build",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "lint": "eslint . && node scripts/check-architecture.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "db:migrate": "node scripts/migrate.mjs",
+    "db:seed": "node scripts/seed.mjs",
+    "dev:api": "pnpm --filter @forge/api build && node apps/api/dist/server.js",
+    "dev:ui": "pnpm --filter @forge/test-ui dev",
+    "security:secrets": "node scripts/scan-secrets.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.1",
+    "@types/node": "24.3.0",
+    "@typescript-eslint/parser": "8.58.2",
+    "eslint": "10.8.1",
+    "pg": "8.23.0",
+    "prettier": "3.9.6",
+    "typescript": "6.0.3",
+    "vitest": "4.1.10",
+    "@types/pg": "8.15.5",
+    "@forge/database": "workspace:*",
+    "@forge/training-application": "workspace:*",
+    "@forge/shared-contracts": "workspace:*"
+  }
+}

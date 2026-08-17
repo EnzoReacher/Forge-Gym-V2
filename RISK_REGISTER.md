@@ -16,3 +16,11 @@
 | R-012 | Scope expands to Coach/Fuel before Training Core proves value | High | PROJECT/PRODUCT_SCOPE hard non-goals; owner approval required for scope change. |
 | R-013 | “Stable” is declared by elapsed time | Medium | Stable threshold must be defined before Milestone 4 and supported by dogfood evidence. |
 | R-014 | Certification becomes infrastructure theater | Medium | Only certify systems actually required by current core; recovery system must be demonstrably restorable. |
+
+## Current execution risks — WSK-001
+
+| ID | Risk | Impact | Current response |
+|---|---|---|---|
+| R-015 | GitHub integration still returns 403 on writes to the new repository | High | Preserve exact local Git history; do not claim remote checkpoint exists. |
+| R-016 | Sandbox cannot resolve npm registry, so pnpm install/lockfile generation cannot run | High | Exact versions are pinned; do not fabricate a lockfile; WSK verification remains blocked until install can run in a connected environment. |
+| R-017 | No PostgreSQL/Docker service is available in this sandbox | High | Migration/integration/E2E tests are implemented but remain unverified here; CI is configured to provide PostgreSQL once remote publication is possible. |

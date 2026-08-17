@@ -45,3 +45,8 @@ The decision is not considered successful until the walking skeleton can be buil
 ## Owner approval
 
 Approved: Yes — accepted by the owner in the final Milestone 0 execution authorization.
+
+## WSK-001 exact pins
+
+- Vitest `4.1.10`
+- Playwright `1.62.1`

@@ -12,3 +12,9 @@ The Test UI may later be replaced or substantially redesigned.
 
 ## Approval
 Accepted by the owner in the final Milestone 0 execution authorization.
+
+## WSK-001 exact pins
+
+- React / React DOM `19.2.8`
+- Vite `8.2.1`
+- `@vitejs/plugin-react` `6.0.5`

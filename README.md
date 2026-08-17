@@ -60,3 +60,35 @@ The exact runtime commands are intentionally not committed yet. They will be add
 ## V1
 
 V1 is reference material, not the codebase to extend. V2 may deliberately reuse proven requirements, safety principles, failure cases, and product lessons. V1 implementation choices are not inherited automatically.
+
+## WSK-001 local bootstrap (Experimental)
+
+Approved toolchain for the Walking Skeleton:
+
+- Node.js 24.19.0 LTS
+- pnpm 11.21.0
+- Fastify 5.12.0
+- PostgreSQL 18.4
+- Kysely 0.29.5
+- React 19.2.8 + Vite 8.2.1
+- TypeScript 6.0.3
+- Vitest 4.1.10
+- Playwright 1.62.1
+
+Expected clean-machine path once the dependency lockfile is generated and committed:
+
+```bash
+cp .env.example .env
+docker compose up -d postgres
+corepack enable
+corepack prepare pnpm@11.21.0 --activate
+pnpm install --frozen-lockfile
+set -a && . ./.env && set +a
+pnpm db:migrate
+pnpm db:seed
+pnpm dev:api
+# second terminal
+pnpm dev:ui
+```
+
+The Test UI is deliberately plain. It exists to validate `planned -> active -> completed`, canonical PostgreSQL persistence, refresh/resume, ownership, idempotency, and stale-write behavior before Product UI/UX begins.
