@@ -60,9 +60,15 @@ See `RISK_REGISTER.md`.
 Immediate blocker:
 1. GitHub integration still lacks write access to the new repository. This blocks remote publication only; local execution is authorized.
 
+## Milestone 0 baseline
+
+- Local bootstrap commit: `ada4d22407ade1e0d580999799115633f669aa85`
+- Local checkpoint tag: `v2.0-project-control`
+- Remote publication: **BLOCKED by GitHub integration 403**
+
 ## Last verified Git SHA
 
-**NONE — repository has no initial commit.**
+`ada4d22407ade1e0d580999799115633f669aa85` — verified locally with `git rev-parse` before this state-recording commit.
 
 ## Next authorized task
 
