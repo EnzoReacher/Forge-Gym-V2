@@ -2,7 +2,7 @@ FROM node:24.19.0-bookworm-slim AS build
 WORKDIR /app
 RUN corepack enable && corepack prepare pnpm@11.21.0 --activate
 COPY . .
-RUN pnpm install --frozen-lockfile
+RUN CI=true pnpm install --frozen-lockfile
 RUN pnpm build
 
 FROM node:24.19.0-bookworm-slim AS runtime
