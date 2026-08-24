@@ -1,18 +1,20 @@
 # FORGE V2 — Current State
 
-Last updated: 2026-08-17
+Last updated: 2026-08-20
 
 ## Repository
 
 Target remote: `EnzoReacher/Forge-Gym-V2`
 
-Local working repository: `/mnt/data/forge-gym-v2`
+Local recovery repository: `/workspace/Forge-Gym-V2`
 
 ## Current milestone
 
 **Milestone 2 — Walking Skeleton**
 
-Implementation exists locally. Required connected verification is blocked by the current execution environment.
+Implementation exists on the remote task branch. WSK-001V source/toolchain
+verification progressed in a connected recovery environment, but required
+PostgreSQL, browser, and OCI verification remains blocked.
 
 ## Current maturity
 
@@ -101,6 +103,29 @@ No Product UI/UX, Raw Steel design work, Coach, Fuel, Hydration, billing, admin,
 
 ## Verification performed in the current environment
 
+### WSK-001V recovery — 2026-08-20
+
+Recovery started from remote `origin/task/wsk-001-walking-skeleton` at
+`978892f66fcc9d47e9bb3ee9973ac8cb026657c3` as the sole source of truth.
+
+Verified with exact Node.js `24.19.0`, pnpm `11.21.0`, and TypeScript `6.0.3`:
+
+- genuine `pnpm-lock.yaml` generation and frozen install — PASS
+- formatting — PASS after failure-driven formatting
+- ESLint and architecture dependency check — PASS
+- full workspace typecheck — PASS after adding the missing Node type context
+- non-PostgreSQL tests — PASS (6 tests); PostgreSQL suite skipped (5 tests)
+- production workspace build — PASS
+
+Full evidence:
+`docs/evidence/walking-skeleton/76c73c55555da45e36a02e4623892c70d6a94ea8/verification.md`
+
+Still not executed: PostgreSQL 18.4 migration/seed/integration checks,
+Playwright E2E, Docker/OCI build and runtime, GitHub Actions, and remote push.
+The Foundation Gate remains **NOT YET PASSED**.
+
+### Earlier disconnected verification — 2026-08-17
+
 Verified:
 
 - `git diff --check` — PASS
@@ -113,7 +138,7 @@ Verified:
 
 Full evidence: `docs/evidence/walking-skeleton/9bf705882ad85314b968e363601bde80ba7b78ed/verification.md`
 
-## Verification blocked in the current environment
+## Verification blocked in the earlier 2026-08-17 environment
 
 - target Node `24.19.0` is unavailable; sandbox Node is `22.16.0`
 - pnpm `11.21.0` cannot be downloaded because `registry.npmjs.org` fails DNS with `EAI_AGAIN`

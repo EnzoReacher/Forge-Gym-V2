@@ -4,7 +4,17 @@
   "private": true,
   "type": "module",
   "types": "./src/index.ts",
-  "exports": { ".": { "types": "./src/index.ts", "default": "./dist/index.js" } },
-  "scripts": { "build": "tsc -p tsconfig.json", "typecheck": "tsc -p tsconfig.json --noEmit" },
-  "devDependencies": { "typescript": "6.0.3" }
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "6.0.3"
+  }
 }

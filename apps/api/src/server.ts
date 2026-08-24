@@ -1,4 +1,9 @@
-import { createDatabase, databaseReady, latestMigration, PostgresUnitOfWork } from "@forge/database";
+import {
+  createDatabase,
+  databaseReady,
+  latestMigration,
+  PostgresUnitOfWork,
+} from "@forge/database";
 import { TrainingService } from "@forge/training-application";
 import { buildApp } from "./app.js";
 import { createDevelopmentAccountResolver } from "./identity.js";

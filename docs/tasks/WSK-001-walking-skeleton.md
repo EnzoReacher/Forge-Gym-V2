@@ -2,7 +2,6 @@
 
 Status: **IMPLEMENTED LOCALLY — REQUIRED ENVIRONMENT VERIFICATION BLOCKED**
 
-
 ## Execution note — 2026-08-17
 
 The WSK-001 code path has been implemented on the local task branch. No acceptance checkbox is considered passed merely because code exists. Full dependency installation, PostgreSQL migration/integration tests, Playwright E2E, OCI build, and clean-machine verification remain blocked in the current sandbox because npm registry/Docker/PostgreSQL are unavailable. Remote publication is separately blocked by GitHub integration write access.
@@ -105,6 +104,7 @@ ADR-001 through ADR-008, ADR-013 through ADR-017 are Accepted for WSK-001. ADR-0
 ## Files likely affected
 
 To be determined by accepted ADR scaffold. Expected categories:
+
 - package/toolchain config
 - `src/training/...`
 - `src/identity/...`
@@ -129,6 +129,7 @@ To be determined by accepted ADR scaffold. Expected categories:
 `docs/evidence/walking-skeleton/<git-sha>/`
 
 Include:
+
 - clean bootstrap commands/result
 - migration result
 - test command/result

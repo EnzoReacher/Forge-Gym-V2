@@ -5,11 +5,16 @@ type Env = Record<string, string | undefined>;
 
 function required(env: Env, name: string): string {
   const value = env[name];
-  if (!value) throw new Error(`${name} is required when development identity is enabled.`);
+  if (!value)
+    throw new Error(
+      `${name} is required when development identity is enabled.`,
+    );
   return value;
 }
 
-export function createDevelopmentAccountResolver(env: Env = process.env): AccountResolver {
+export function createDevelopmentAccountResolver(
+  env: Env = process.env,
+): AccountResolver {
   const allow = env.ALLOW_DEV_IDENTITY === "true";
   const nodeEnv = env.NODE_ENV ?? "development";
   const appEnv = env.APP_ENV ?? nodeEnv;
