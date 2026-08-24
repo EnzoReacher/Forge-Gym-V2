@@ -46,7 +46,6 @@ The decision is not considered successful until the walking skeleton can be buil
 
 Approved: Yes — accepted by the owner in the final Milestone 0 execution authorization.
 
-
 ## WSK-001 idempotency contract
 
 Retry-sensitive mutations use the namespace `authenticated account + operation + idempotency key`. For `startWorkout`, `completeSet`, and `finishWorkout`, an equivalent retry returns the original canonical result; a materially different payload is an explicit conflict; accounts cannot collide with or discover each other's records; canonical mutation and successful idempotency result commit in one transaction; failed transactions leave no false-success record; and lost responses are reconcilable by retrying the same request.

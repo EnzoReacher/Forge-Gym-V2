@@ -46,7 +46,6 @@ The decision is not considered successful until the walking skeleton can be buil
 
 Approved: Yes — accepted by the owner in the final Milestone 0 execution authorization.
 
-
 ## Isolation clarification
 
 Foreign keys and non-null owner columns prove that a record references an owner; they do not by themselves prove tenant isolation. Every private repository operation is owner-scoped from trusted `AuthenticatedAccount` context. Two-account integration tests must prove read, modify, delete, and enumeration isolation. PostgreSQL RLS may be evaluated later as defense-in-depth, but is not claimed for WSK-001.

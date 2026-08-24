@@ -3,6 +3,7 @@
 Security requirements for Training Core are driven by `CORE_INVARIANTS.md`, `TEST_STRATEGY.md`, and the Certification Gate.
 
 Before certification this area will contain:
+
 - applicable security baseline/control mapping
 - authentication/session model
 - authorization/ownership model

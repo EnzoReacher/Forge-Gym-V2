@@ -74,7 +74,6 @@ Display unit is a preference; canonical recorded meaning must not change when th
 
 Canonical event timestamps use UTC. The workout must also preserve enough IANA timezone/local-date context to reproduce the athlete's workout date. Exact semantics are proposed in ADR-015.
 
-
 ## WSK-001 lifecycle decision
 
 The initial implemented Workout Session lifecycle is deliberately only `Planned -> Active -> Completed`. Interruption is represented by an `Active` session that can be retrieved and resumed. `Paused`, automatic `Abandoned`, cancellation, reopening, multiple active sessions, cross-midnight ownership, replacement, correction, skip/restore, and advanced metrics remain capability-specific questions and are not implemented merely because they may exist later.

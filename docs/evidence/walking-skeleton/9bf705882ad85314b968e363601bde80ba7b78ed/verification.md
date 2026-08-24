@@ -21,14 +21,14 @@ Status: **BLOCKED**
 
 ## Environment inventory
 
-| Item | Required | Available here | Result |
-|---|---|---|---|
-| Node.js | `24.19.0` | `22.16.0` | BLOCKED for target-toolchain verification |
-| pnpm | `11.21.0` | not installed; Corepack cannot download it | BLOCKED |
-| TypeScript | `6.0.3` | global `5.8.3` | target typecheck BLOCKED |
-| npm registry | reachable | DNS `EAI_AGAIN registry.npmjs.org` | BLOCKED |
-| Docker | required for documented local PostgreSQL bootstrap / OCI verification | missing | BLOCKED |
-| PostgreSQL client/server | required for real migration/integration verification | missing | BLOCKED |
+| Item                     | Required                                                              | Available here                             | Result                                    |
+| ------------------------ | --------------------------------------------------------------------- | ------------------------------------------ | ----------------------------------------- |
+| Node.js                  | `24.19.0`                                                             | `22.16.0`                                  | BLOCKED for target-toolchain verification |
+| pnpm                     | `11.21.0`                                                             | not installed; Corepack cannot download it | BLOCKED                                   |
+| TypeScript               | `6.0.3`                                                               | global `5.8.3`                             | target typecheck BLOCKED                  |
+| npm registry             | reachable                                                             | DNS `EAI_AGAIN registry.npmjs.org`         | BLOCKED                                   |
+| Docker                   | required for documented local PostgreSQL bootstrap / OCI verification | missing                                    | BLOCKED                                   |
+| PostgreSQL client/server | required for real migration/integration verification                  | missing                                    | BLOCKED                                   |
 
 ## Checks executed successfully
 
@@ -63,7 +63,7 @@ Executed the compiled domain transitions:
 Observed result:
 
 ```json
-{"state":"completed","version":3,"loadGrams":80000,"reps":8}
+{ "state": "completed", "version": 3, "loadGrams": 80000, "reps": 8 }
 ```
 
 Result: PASS for this narrow pure-domain smoke.
@@ -75,7 +75,14 @@ Executed `TrainingService` against a temporary in-memory implementation of the a
 Observed result:
 
 ```json
-{"ownerIsolation":true,"startIdempotent":true,"setIdempotent":true,"finishIdempotent":true,"staleConflict":true,"finalVersion":3}
+{
+  "ownerIsolation": true,
+  "startIdempotent": true,
+  "setIdempotent": true,
+  "finishIdempotent": true,
+  "staleConflict": true,
+  "finalVersion": 3
+}
 ```
 
 Result: PASS for this narrow application-boundary smoke.

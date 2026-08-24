@@ -3,6 +3,7 @@
 Product-development material belongs here when it is more detailed than `PROJECT.md` or `PRODUCT_SCOPE.md`.
 
 During the Core Era, prioritize:
+
 - active-workout findings
 - Test UI validation
 - dogfood evidence

@@ -67,6 +67,7 @@ Do not collect unnecessary health/private payloads for engineering telemetry.
 The exact threshold is deliberately **not set during Milestone 0** because the final Experimental Training Core is not implemented yet.
 
 Before Milestone 4 begins, create an evidence-based threshold proposal covering:
+
 - minimum representative workout cycles
 - minimum completed sessions/sets
 - required exercised failure/recovery cases
