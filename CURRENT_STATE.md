@@ -1,6 +1,6 @@
 # FORGE V2 — Current State
 
-Last updated: 2026-08-20
+Last updated: 2026-08-25
 
 ## Repository
 
@@ -12,9 +12,10 @@ Local recovery repository: `/workspace/Forge-Gym-V2`
 
 **Milestone 2 — Walking Skeleton**
 
-Implementation exists on the remote task branch. WSK-001V source/toolchain
-verification progressed in a connected recovery environment, but required
-PostgreSQL, browser, and OCI verification remains blocked.
+Implementation and the PR #2 recovery merge exist on
+`task/wsk-001-walking-skeleton`. This WSK-001 verification-closure change makes
+the remaining PostgreSQL evidence mandatory and machine-verifiable in GitHub
+Actions. PR #1 remains a draft targeting `main` and is not authorized to merge.
 
 ## Current maturity
 
@@ -24,10 +25,9 @@ The Training Core is **not Stable** and **not Certified**.
 
 ## Remote GitHub state
 
-- Repository exists and remains empty (`size: 0` on the latest read).
-- GitHub read access works.
-- GitHub write access still fails with `403 Resource not accessible by integration`.
-- The latest bootstrap `create_file` attempt failed; no partial remote write is claimed.
+- PR #2 recovery is merged into `task/wsk-001-walking-skeleton`.
+- PR #1 remains draft and targets `main`; it has not been merged.
+- The verification-closure PR must target `task/wsk-001-walking-skeleton`.
 
 ## Local Git baselines
 
@@ -41,6 +41,8 @@ The Training Core is **not Stable** and **not Certified**.
 
 - Task branch: `task/wsk-001-walking-skeleton`
 - WSK-001 implementation commit: `9bf705882ad85314b968e363601bde80ba7b78ed`
+- PR #2 recovery merge commit used as the closure baseline:
+  `24fb7989477a646413c91f149788094311c36d67`
 - Merge to `main`: **NOT AUTHORIZED YET** because required verification is incomplete.
 
 These identifiers are verified in the local Git repository only; they are not remote GitHub commits until publication succeeds.
@@ -102,6 +104,24 @@ The local task branch contains:
 No Product UI/UX, Raw Steel design work, Coach, Fuel, Hydration, billing, admin, social, production auth, observability vendor, background-job system, or object storage was added.
 
 ## Verification performed in the current environment
+
+### WSK-001V PostgreSQL closure — 2026-08-25
+
+The closure workflow is pinned to Node.js `24.19.0`, pnpm `11.21.0`, and
+`postgres:18.4`, and reports the exact GitHub `github.sha` in its logs. It now
+requires `TEST_DATABASE_URL`, waits with `pg_isready`, migrates, seeds, and then
+asserts the PostgreSQL integration result is exactly **5 passed, 0 skipped**.
+The full runner sequence also includes frozen install, secret scan, formatting,
+lint/architecture, typecheck, the complete test suite, production build, Docker
+build, and Playwright E2E.
+
+At authoring time GitHub Actions has not yet run this change. Therefore the
+closure-run PostgreSQL total, Docker result, and E2E result are all **UNVERIFIED**;
+the last executed connected test total remains **6 passed and 5 PostgreSQL tests
+skipped**. The exact baseline SHA is
+`24fb7989477a646413c91f149788094311c36d67`; the closure commit SHA will be the
+immutable `github.sha` printed by CI. Evidence is recorded in
+`docs/evidence/walking-skeleton/24fb7989477a646413c91f149788094311c36d67/verification-closure.md`.
 
 ### WSK-001V recovery — 2026-08-20
 

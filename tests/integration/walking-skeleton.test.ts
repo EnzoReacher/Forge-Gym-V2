@@ -14,6 +14,9 @@ import {
 } from "@forge/training-application";
 
 const databaseUrl = process.env.TEST_DATABASE_URL;
+if (process.env.CI && !databaseUrl) {
+  throw new Error("TEST_DATABASE_URL is mandatory in CI");
+}
 const integration = databaseUrl ? describe : describe.skip;
 const A: AuthenticatedAccount = {
   id: "00000000-0000-4000-8000-000000000001",
