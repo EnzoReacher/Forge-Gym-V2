@@ -36,16 +36,61 @@ jobs:
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with: { persist-credentials: false }
+      - name: Require PostgreSQL integration configuration
+        run: |
+          : "${TEST_DATABASE_URL:?TEST_DATABASE_URL is mandatory in CI}"
+          : "${DATABASE_URL:?DATABASE_URL is mandatory in CI}"
       - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903
         with: { node-version: 24.19.0 }
       - run: corepack enable && corepack prepare pnpm@11.21.0 --activate
+      - name: Report immutable verification inputs
+        run: |
+          echo "Git SHA: $GITHUB_SHA"
+          echo "Node: $(node --version)"
+          echo "pnpm: $(pnpm --version)"
+          docker inspect --format 'PostgreSQL image: {{.Config.Image}}' "${{ job.services.postgres.id }}"
       - run: echo "FORGE_BUILD_TIMESTAMP=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_ENV"
       - run: pnpm install --frozen-lockfile
       - run: pnpm security:secrets
       - run: pnpm format:check
       - run: pnpm lint
       - run: pnpm typecheck
-      - run: pnpm db:migrate && pnpm db:seed
+      - name: Wait for PostgreSQL 18.4
+        run: |
+          : "${{ job.services.postgres.id }}"
+          for attempt in $(seq 1 30); do
+            if docker exec "${{ job.services.postgres.id }}" pg_isready -h 127.0.0.1 -U forge -d forge_test; then
+              exit 0
+            fi
+            echo "PostgreSQL is not ready (attempt ${attempt}/30)"
+            sleep 2
+          done
+          echo "PostgreSQL did not become ready" >&2
+          exit 1
+      - name: Migrate PostgreSQL
+        run: pnpm db:migrate
+      - name: Seed PostgreSQL deterministically
+        run: pnpm db:seed
+      - name: Verify all 5 PostgreSQL integration tests execute
+        run: |
+          pnpm exec vitest run tests/integration/walking-skeleton.test.ts \
+            --reporter=json --outputFile=postgres-results.json
+          node --input-type=module <<'EOF'
+          import { readFileSync } from "node:fs";
+          const result = JSON.parse(readFileSync("postgres-results.json", "utf8"));
+          const expected = 5;
+          if (
+            result.numTotalTests !== expected ||
+            result.numPassedTests !== expected ||
+            result.numPendingTests !== 0 ||
+            result.numFailedTests !== 0
+          ) {
+            console.error("PostgreSQL verification did not execute exactly 5 passing, 0 skipped tests", result);
+            process.exit(1);
+          }
+          console.log(`${result.numPassedTests} PostgreSQL tests passed`);
+          console.log(`${result.numPendingTests} PostgreSQL tests skipped`);
+          EOF
       - run: pnpm test
       - run: pnpm build
       - run: docker build --build-arg FORGE_VERSION="$FORGE_VERSION" --build-arg FORGE_GIT_SHA="$FORGE_GIT_SHA" --build-arg FORGE_BUILD_ID="$FORGE_BUILD_ID" --build-arg FORGE_BUILD_TIMESTAMP="$FORGE_BUILD_TIMESTAMP" -t "forge-v2:$FORGE_GIT_SHA" .
