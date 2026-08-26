@@ -15,31 +15,35 @@ Testing is risk-based. Percentage coverage is not a substitute for proving impor
 
 ## Initial capability matrix
 
-| Capability | Unit | Integration | E2E | Failure/recovery | Isolation |
-|---|---:|---:|---:|---:|---:|
-| Start workout | Yes | Yes | Yes | duplicate | Yes |
-| Active workout | Yes | Yes | Yes | timeout/stale | Yes |
-| Complete set | Yes | Yes | Yes | lost response/retry | Yes |
-| Correct set | Yes | Yes | Yes | concurrent edit | Yes |
-| Skip/restore | Yes | Yes | Yes | retry | Yes |
-| Replace exercise | Yes | Yes | Yes | partial failure | Yes |
-| Resume | Yes | Yes | Yes | refresh/network | Yes |
-| Finish | Yes | Yes | Yes | duplicate/transaction | Yes |
-| History | Yes | Yes | Yes | incomplete data | Yes |
-| Previous performance | Yes | Yes | Yes | comparison edge | Yes |
+| Capability           | Unit | Integration | E2E |      Failure/recovery | Isolation |
+| -------------------- | ---: | ----------: | --: | --------------------: | --------: |
+| Start workout        |  Yes |         Yes | Yes |             duplicate |       Yes |
+| Active workout       |  Yes |         Yes | Yes |         timeout/stale |       Yes |
+| Complete set         |  Yes |         Yes | Yes |   lost response/retry |       Yes |
+| Correct set          |  Yes |         Yes | Yes |       concurrent edit |       Yes |
+| Skip/restore         |  Yes |         Yes | Yes |                 retry |       Yes |
+| Replace exercise     |  Yes |         Yes | Yes |       partial failure |       Yes |
+| Resume               |  Yes |         Yes | Yes |       refresh/network |       Yes |
+| Finish               |  Yes |         Yes | Yes | duplicate/transaction |       Yes |
+| History              |  Yes |         Yes | Yes |       incomplete data |       Yes |
+| Previous performance |  Yes |         Yes | Yes |       comparison edge |       Yes |
 
 ## CI by maturity
 
 ### Milestone 0/1
+
 Document validation/manual review; no application CI claim before application code exists.
 
 ### Walking skeleton
+
 At minimum: install, format/lint, typecheck, unit/integration tests, build, migration apply.
 
 ### Experimental Core
+
 Add E2E critical flow, ownership checks, idempotency/failure cases as capabilities appear.
 
 ### Stable/Certification
+
 Add full gate evidence: migration/recovery, security, backup/restore, deployment/rollback, provenance.
 
 ## Rule

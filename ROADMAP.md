@@ -2,7 +2,7 @@
 
 ## Milestone 0 — Project Control Plane
 
-Status: **IN PROGRESS**
+Status: **COMPLETE LOCALLY — REMOTE PUBLICATION BLOCKED**
 
 Deliver the governing documents, risk register, ADR process, task protocol, maturity model, gates, and authoritative current-state record.
 
@@ -10,7 +10,7 @@ Exit condition: control-plane artifacts are coherent and the architecture decisi
 
 ## Milestone 1 — Architecture Foundation
 
-Status: **PROPOSED**
+Status: **ACCEPTED FOR WSK-001**
 
 Accept the minimum ADRs required for runtime, database, data access, auth boundary, authorization, API, local development, deployment, testing, retry/recovery, and time/units.
 
@@ -18,7 +18,7 @@ Do not accept unused future systems merely to complete an ADR list.
 
 ## Milestone 2 — Walking Skeleton
 
-Status: **NOT STARTED**
+Status: **IMPLEMENTED LOCALLY — REQUIRED VERIFICATION BLOCKED**
 
 Deliver one real end-to-end persisted slice through a minimal Test UI:
 

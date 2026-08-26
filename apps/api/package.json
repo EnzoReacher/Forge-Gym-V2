@@ -1,0 +1,20 @@
+{
+  "name": "@forge/api",
+  "version": "0.1.0-experimental",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@forge/database": "workspace:*",
+    "@forge/training-application": "workspace:*",
+    "@forge/shared-contracts": "workspace:*",
+    "fastify": "5.12.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "24.3.0",
+    "typescript": "6.0.3"
+  }
+}

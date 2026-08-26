@@ -46,7 +46,6 @@ The decision is not considered successful until the walking skeleton can be buil
 
 Approved: Yes — accepted by the owner in the final Milestone 0 execution authorization.
 
-
 ## Development identity guard
 
 The development adapter is disabled by default and requires both `NODE_ENV=development` and `ALLOW_DEV_IDENTITY=true`. It resolves only deterministic, server-configured seed identities. It never trusts a public client-supplied canonical account ID. Startup must fail if development identity is enabled in staging or production. Production authentication remains Deferred.

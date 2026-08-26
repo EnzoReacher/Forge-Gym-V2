@@ -5,15 +5,19 @@ This file governs AI and human execution inside the repository.
 ## Authority
 
 ### Project owner
+
 Final authority over product scope, irreversible business decisions, production release, and acceptance of material architecture choices.
 
 ### Lead architecture/engineering agent
+
 May inspect, propose reversible architecture, create control documents, implement approved bounded work, verify evidence, identify ambiguity, and recommend maturity transitions.
 
 ### Execution agents
+
 May work only from an explicit Task Packet. They do not independently redefine architecture, scope, canonical domain semantics, or release gates.
 
 ### CI
+
 Independent mechanical verifier. Agent claims do not override failing checks.
 
 ## Mandatory work sequence
@@ -25,6 +29,7 @@ An initial empty-repository bootstrap commit may be required before normal branc
 ## Before implementation
 
 Read:
+
 - PROJECT.md
 - PRODUCT_SCOPE.md
 - ARCHITECTURE.md
@@ -53,6 +58,7 @@ State what will change and what will not change.
 ## Stop conditions
 
 Stop the affected task and report when:
+
 - requirements conflict with architecture constraints
 - domain semantics are undefined/contradictory
 - migration may lose/reinterpret data
@@ -91,6 +97,7 @@ Definition of done
 ## Evidence
 
 Completion reports must state:
+
 - files changed
 - decisions made
 - tests actually run

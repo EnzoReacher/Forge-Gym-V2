@@ -1,0 +1,28 @@
+{
+  "name": "@forge/database",
+  "version": "0.1.0-experimental",
+  "private": true,
+  "type": "module",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "dependencies": {
+    "@forge/training-domain": "workspace:*",
+    "@forge/training-application": "workspace:*",
+    "kysely": "0.29.5",
+    "pg": "8.23.0",
+    "@forge/shared-contracts": "workspace:*"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/pg": "8.15.5",
+    "typescript": "6.0.3"
+  }
+}

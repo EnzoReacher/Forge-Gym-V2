@@ -46,3 +46,9 @@ The decision is not considered successful until the walking skeleton can be buil
 ## Owner approval
 
 Approved: Yes — accepted by the owner in the final Milestone 0 execution authorization.
+
+## WSK-001 exact pin
+
+- Node.js `24.19.0` (LTS line)
+- TypeScript `6.0.3`
+- Fastify `5.12.0`

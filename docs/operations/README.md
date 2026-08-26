@@ -3,6 +3,7 @@
 Operational documentation is intentionally minimal during Milestone 0.
 
 Before Training Core certification this area must cover:
+
 - health/readiness
 - build/release identity
 - deployment

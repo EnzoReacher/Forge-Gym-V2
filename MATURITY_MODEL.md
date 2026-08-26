@@ -7,6 +7,7 @@ Maturity is scoped. A certification claim must name the capability/domain evalua
 Purpose: discover the correct Training Core workflow and semantics.
 
 Expected:
+
 - Test UI exists
 - real workout usage begins
 - schema/contracts/terminology may change with evidence
@@ -14,6 +15,7 @@ Expected:
 - architecture boundaries still apply
 
 Never allowed:
+
 - known corruption
 - ownership bypass
 - untracked destructive migration
@@ -26,6 +28,7 @@ Purpose: establish that the Training Core model survived repeated real use.
 Before a Stable review, `DOGFOOD_PROTOCOL.md` must define exact thresholds for the current cycle. Calendar age alone is not evidence.
 
 Required evidence includes:
+
 - repeated real workouts
 - representative completed sets
 - corrections
@@ -45,6 +48,7 @@ Required evidence includes:
 Purpose: prove a Stable Training Core is sufficiently safe, reproducible, recoverable, observable, and traceable for serious Product UI/UX investment.
 
 Required:
+
 - ownership isolation
 - authentication and authorization
 - transaction integrity

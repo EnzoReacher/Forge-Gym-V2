@@ -46,3 +46,8 @@ The decision is not considered successful until the walking skeleton can be buil
 ## Owner approval
 
 Approved: Yes — accepted by the owner in the final Milestone 0 execution authorization.
+
+## WSK-001 exact pin
+
+- Kysely `0.29.5`
+- node-postgres (`pg`) `8.23.0`

@@ -1,6 +1,10 @@
 # WSK-001 — First Persisted Training Walking Skeleton
 
-Status: **AUTHORIZED — implementation may proceed**
+Status: **IMPLEMENTED LOCALLY — REQUIRED ENVIRONMENT VERIFICATION BLOCKED**
+
+## Execution note — 2026-08-17
+
+The WSK-001 code path has been implemented on the local task branch. No acceptance checkbox is considered passed merely because code exists. Full dependency installation, PostgreSQL migration/integration tests, Playwright E2E, OCI build, and clean-machine verification remain blocked in the current sandbox because npm registry/Docker/PostgreSQL are unavailable. Remote publication is separately blocked by GitHub integration write access.
 
 ## Goal
 
@@ -12,7 +16,7 @@ The project must prove the whole pipe before broadening domain scope or investin
 
 ## Current maturity state
 
-Experimental / pre-walking-skeleton.
+Experimental.
 
 ## Preconditions
 
@@ -72,7 +76,7 @@ ADR-001 through ADR-008, ADR-013 through ADR-017 are Accepted for WSK-001. ADR-0
 - [ ] Idempotency result and canonical mutation commit in one transaction.
 - [ ] A stale expected Workout Session version returns an explicit conflict and preserves newer canonical state.
 - [ ] A client-supplied fake owner field cannot redirect a write.
-- [ ] `/health` reports application/database readiness without sensitive details.
+- [ ] `/health` reports non-sensitive application liveness and `/ready` reports database/migration readiness.
 - [ ] build-info endpoint or equivalent exposes version/Git SHA/build/migration metadata.
 - [ ] no Product UI polish beyond usable Test UI basics is introduced.
 
@@ -100,6 +104,7 @@ ADR-001 through ADR-008, ADR-013 through ADR-017 are Accepted for WSK-001. ADR-0
 ## Files likely affected
 
 To be determined by accepted ADR scaffold. Expected categories:
+
 - package/toolchain config
 - `src/training/...`
 - `src/identity/...`
@@ -124,6 +129,7 @@ To be determined by accepted ADR scaffold. Expected categories:
 `docs/evidence/walking-skeleton/<git-sha>/`
 
 Include:
+
 - clean bootstrap commands/result
 - migration result
 - test command/result

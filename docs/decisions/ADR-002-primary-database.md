@@ -46,3 +46,7 @@ The decision is not considered successful until the walking skeleton can be buil
 ## Owner approval
 
 Approved: Yes — accepted by the owner in the final Milestone 0 execution authorization.
+
+## WSK-001 exact pin
+
+PostgreSQL `18.4` for local/CI database images. Minor updates within PostgreSQL 18 should be reviewed as maintenance rather than silent floating tags.
